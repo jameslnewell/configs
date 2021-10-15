@@ -1,21 +1,23 @@
 # @jameslnewell/jest-preset
 
-A test preset for my personal projects that use `jest`.
+A [Jest](https://jestjs.io/) preset according to my preferences.
 
 ## Installation
 
 ```
-yarn add --dev @babel/core @jameslnewell/jest-preset
+yarn add --dev jest @jameslnewell/jest-preset
 ```
 
 ## Usage
 
-`jest.config.js`
+Add the following configuration to your `package.json`:
 
-```
+```json
 {
-  preset: '@jameslnewell/jest-preset'
+  "jest": {
+    "preset": "@jameslnewell/jest-preset"
+  }
 }
 ```
 
-> Requires a `.babelrc`. See `@jameslnewell/babel-preset`.
+> Requires a `.babelrc` to apply any transformations. See `@jameslnewell/babel-preset`.

@@ -1,16 +1,21 @@
 {
   "name": "@jameslnewell/jest-preset",
-  "version": "2.1.0",
-  "repository": "jameslnewell/configs",
+  "version": "3.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslnewell/configs.git",
+    "directory": "packages/editor-config"
+  },
   "files": [
     "jest-preset.js"
   ],
-  "dependencies": {
-    "@manypkg/get-packages": "^1.1.1",
-    "babel-jest": "^26.5.2"
-  },
   "peerDependencies": {
-    "jest": ">=26.1.0"
+    "jest": ">=27.2.5"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.0",
+    "@manypkg/get-packages": "^1.1.1",
+    "babel-jest": "^27.2.5"
   },
   "license": "MIT"
 }
