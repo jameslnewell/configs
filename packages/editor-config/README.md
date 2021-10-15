@@ -1,11 +1,17 @@
 # @jameslnewell/editor-config
 
-Editorconfig.
+Creates an [`.editorconfig`](https://editorconfig.org/) file according to my preferences.
 
-## Installation
+## Usage
 
+Yarn:
+
+```bash
+yarn dlx -p @jameslnewell/editor-config create-editor-config
 ```
-yarn add --dev @jameslnewell/editor-config
-```
 
-> When installation is complete, an `.editorconfig` file will be created in the current directory if one does not already exist.
+NPM:
+
+```bash
+npx -p @jameslnewell/editor-config create-editor-config
+```

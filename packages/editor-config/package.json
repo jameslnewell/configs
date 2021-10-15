@@ -1,10 +1,13 @@
 {
   "name": "@jameslnewell/editor-config",
-  "version": "1.0.1",
-  "files": [".editorconfig", "postinstall.js"],
+  "version": "2.0.0",
   "repository": "jameslnewell/configs",
-  "scripts": {
-    "postinstall": "node ./postinstall.js"
+  "bin": {
+    "create-editor-config": "./cli.js"
   },
+  "files": [
+    ".editorconfig",
+    "cli.js"
+  ],
   "license": "MIT"
 }
