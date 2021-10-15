@@ -2,7 +2,7 @@
 
 Creates an [`.editorconfig`](https://editorconfig.org/) file according to my preferences.
 
-## Usage
+## Installation
 
 Yarn:
 

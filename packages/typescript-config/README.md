@@ -1,25 +1,32 @@
 # @jameslnewell/typescript-config
 
-Typescript configuration.
+Creates a [`tsconfig.base.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file according to my preferences.
 
 ## Installation
 
+Yarn:
+
+```bash
+yarn dlx -p @jameslnewell/typescript-config create-editor-config
 ```
-yarn add --dev @jameslnewell/typescript-config
+
+NPM:
+
+```bash
+npx -p @jameslnewell/typescript-config create-editor-config
 ```
 
 ## Usage
 
-`tsconfig.json`
+Create a `tsconfig.json` that extends `tsconfig.base.json`.
 
 ```json
 {
-  "extends": "./node_modules/@jameslnewell/typescript-config/tsconfig.json",
+  "extends": "tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "lib",
-    "target": "commonjs"
-
+    "outDir": "dist",
+    "target": "CommonJS"
   },
   "include": ["src"]
 }
