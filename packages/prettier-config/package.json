@@ -1,10 +1,17 @@
 {
   "name": "@jameslnewell/prettier-config",
-  "version": "1.0.1",
-  "files": ["index.js"],
-  "repository": "jameslnewell/configs",
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslnewell/configs.git",
+    "directory": "packages/prettier-config"
+  },
+  "main": "index.json",
+  "files": [
+    "index.json"
+  ],
   "peerDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.4.1"
   },
   "license": "MIT"
 }

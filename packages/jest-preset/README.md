@@ -20,4 +20,4 @@ Add the following configuration to your `package.json`:
 }
 ```
 
-> Requires a `.babelrc` to apply any transformations. See `@jameslnewell/babel-preset`.
+> Configure a `.swcrc` to start transpiling code.

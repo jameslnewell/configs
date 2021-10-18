@@ -1,6 +1,6 @@
 # @jameslnewell/prettier-config
 
-Prettier configuration.
+A [`.prettierrc.js`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file according to my preferences.
 
 ## Installation
 
@@ -10,8 +10,10 @@ yarn add --dev @jameslnewell/prettier-config
 
 ## Usage
 
-`.prettierrc.js`
+Add the following configuration to your `package.json`:
 
 ```js
-module.exports = require('@jameslnewell/prettier-config');
+{
+  "prettier": "@jameslnewell/prettier-config"
+}
 ```
