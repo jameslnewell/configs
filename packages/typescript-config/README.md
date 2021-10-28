@@ -7,13 +7,13 @@ Creates a [`tsconfig.base.json`](https://www.typescriptlang.org/docs/handbook/ts
 Yarn:
 
 ```bash
-yarn dlx -p @jameslnewell/typescript-config create-editor-config
+yarn dlx -p @jameslnewell/typescript-config create-typescript-config
 ```
 
 NPM:
 
 ```bash
-npx -p @jameslnewell/typescript-config create-editor-config
+npx -p @jameslnewell/typescript-config create-typescript-config
 ```
 
 ## Usage
