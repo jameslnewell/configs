@@ -1,6 +1,6 @@
 const common = {
   testEnvironment: 'node',
-  moduleFileExtensions: ['ts', 'json'],
+  moduleFileExtensions: ['ts', 'js', 'json'],
   transform: {'^.+\\.ts$': '@swc/jest'},
 };
 

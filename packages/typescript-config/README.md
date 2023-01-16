@@ -7,6 +7,7 @@ Creates a [`tsconfig.base.json`](https://www.typescriptlang.org/docs/handbook/ts
 NPM:
 
 ```bash
+npm install --dev @jameslnewell/typescript-config
 npm exec -p @jameslnewell/typescript-config -- create-typescript-config
 ```
 

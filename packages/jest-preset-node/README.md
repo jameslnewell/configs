@@ -16,6 +16,10 @@ Add the following configuration to your `package.json`:
 {
   "jest": {
     "preset": "@jameslnewell/jest-preset-node"
+  },
+  "scripts": {
+    "test": "jest --selectProjects unit",
+    "test:e2e": "jest --selectProjects e2e"
   }
 }
 ```
