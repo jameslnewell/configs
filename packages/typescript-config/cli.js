@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 
-const sourcePath = `${__dirname}/tsconfig.base.json`;
+const sourcePath = `${__dirname}/tsconfig.template.json`;
 const destinationPath = `${process.cwd()}/tsconfig.json`;
 
 try {

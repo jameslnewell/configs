@@ -5,7 +5,7 @@ A [Jest](https://jestjs.io/) preset according to my preferences.
 ## Installation
 
 ```
-npm install --dev jest @jameslnewell/jest-preset-node
+npm install --dev jest @types/jest @jameslnewell/jest-preset-node
 ```
 
 ## Usage

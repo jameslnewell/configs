@@ -5,7 +5,7 @@ A [`.prettierrc.js`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.
 ## Installation
 
 ```
-yarn add --dev @jameslnewell/prettier-config
+npm install --dev prettier @jameslnewell/prettier-config
 ```
 
 ## Usage
