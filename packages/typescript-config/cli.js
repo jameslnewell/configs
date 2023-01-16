@@ -3,20 +3,20 @@
 const fs = require('fs');
 
 const sourcePath = `${__dirname}/tsconfig.base.json`;
-const destinationPath = `${process.cwd()}/tsconfig.base.json`;
+const destinationPath = `${process.cwd()}/tsconfig.json`;
 
 try {
   if (!fs.existsSync(destinationPath)) {
     fs.writeFileSync(destinationPath, fs.readFileSync(sourcePath));
-    console.log('✅  A "tsconfig.base.json" file was created. ');
+    console.log('✅  A "tsconfig.json" file was created. ');
   } else {
     const sourceContent = fs.readFileSync(sourcePath).toString();
     const destinationContent = fs.readFileSync(destinationPath).toString();
     if (destinationContent === sourceContent) {
-      console.log('ℹ️  A "tsconfig.base.json" file already exists.');
+      console.log('ℹ️  A "tsconfig.json" file already exists.');
     } else {
       console.log(
-        '⚠️  A "tsconfig.base.json" file already exists but is configured differently.',
+        '⚠️  A "tsconfig.json" file already exists but is configured differently.',
       );
       process.exitCode = -1;
     }

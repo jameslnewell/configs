@@ -1,6 +1,6 @@
 {
   "name": "@jameslnewell/typescript-config",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
@@ -10,7 +10,8 @@
     "create-typescript-config": "./cli.js"
   },
   "files": [
-    "tsconfig.base.json",
+    "tsconfig.json",
+    "tsconfig.template.json",
     "cli.js"
   ],
   "license": "MIT"

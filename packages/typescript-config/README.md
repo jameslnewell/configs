@@ -4,30 +4,17 @@ Creates a [`tsconfig.base.json`](https://www.typescriptlang.org/docs/handbook/ts
 
 ## Installation
 
-Yarn:
-
-```bash
-yarn dlx -p @jameslnewell/typescript-config create-typescript-config
-```
-
 NPM:
 
 ```bash
-npx -p @jameslnewell/typescript-config create-typescript-config
+npm exec -p @jameslnewell/typescript-config -- create-typescript-config
 ```
 
 ## Usage
 
-Create a `tsconfig.json` that extends `tsconfig.base.json`.
-
 ```json
 {
-  "extends": "tsconfig.base.json",
-  "compilerOptions": {
-    "declaration": true,
-    "outDir": "dist",
-    "target": "CommonJS"
-  },
+  "extends": "@jameslnewell/typescript-config",
   "include": ["src"]
 }
 ```
