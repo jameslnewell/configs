@@ -1,0 +1,17 @@
+{
+  "name": "@jameslnewell/swc-config",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslnewell/configs.git",
+    "directory": "packages/swc-config"
+  },
+  "bin": {
+    "create-swc-config": "./cli.js"
+  },
+  "files": [
+    "cli.js",
+    ".swcrc"
+  ],
+  "license": "MIT"
+}
