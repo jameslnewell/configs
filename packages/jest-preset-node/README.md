@@ -18,10 +18,10 @@ Add the following configuration to your `package.json`:
     "preset": "@jameslnewell/jest-preset-node"
   },
   "scripts": {
-    "test": "jest --selectProjects unit",
-    "test:e2e": "jest --selectProjects e2e"
+    "test": "jest --selectProjects unit --passWithNoTests",
+    "test:e2e": "jest --selectProjects e2e --passWithNoTests"
   }
 }
 ```
 
-> Configure a `.swcrc` to start transpiling code.
+> Create a `.swcrc` file via `@jameslnewell/swc-config` to configure transpilation.
