@@ -1,6 +1,6 @@
 {
   "name": "@jameslnewell/prettier-config",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
@@ -11,7 +11,7 @@
     "index.json"
   ],
   "peerDependencies": {
-    "prettier": "^2.4.1 | ^3.0.0"
+    "prettier": "^2.4.1 || ^3.0.0"
   },
   "license": "MIT"
 }
