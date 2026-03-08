@@ -1,21 +1,13 @@
-# @jameslnewell/typescript-config
+# @jameslnewell/tsconfig
 
-Creates a [`tsconfig.base.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file according to my preferences.
+Contains a [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file according to my preferences.
 
 ## Installation
 
 NPM:
 
 ```bash
-npm install --dev @jameslnewell/typescript-config
-npm exec -p @jameslnewell/typescript-config -- create-typescript-config
-```
-
-## Usage
-
-```json
-{
-  "extends": "@jameslnewell/typescript-config",
-  "include": ["src"]
-}
+npm i -D @jameslnewell/typescript-config
+cp node_modules/typescript-config/tsconfig.json tsconfig.json
+``
 ```

@@ -1,26 +1,35 @@
 {
-  "name": "@jameslnewell/prettier-config",
+  "name": "@jameslnewell/jest-preset",
   "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
-    "directory": "packages/prettier-config"
+    "directory": "packages/jest-preset"
   },
-  "main": "prettier-config.mjs",
+  "main": "jest-preset.mjs",
   "files": [
-    "prettier-config.mjs"
+    "jest-preset.mjs"
   ],
   "peerDependencies": {
-    "prettier": "^3.0.0"
+    "jest": ">=30.0.0"
+  },
+  "dependencies": {
+    "@swc/core": "^1.13.4",
+    "@swc/jest": "^0.2.39"
   },
   "devDependencies": {
     "@jameslnewell/eslint-config": "workspace:*",
+    "@jameslnewell/prettier-config": "workspace:*",
+    "@types/jest": "^29.5.14",
     "@types/node": "^25.3.0",
-    "prettier": "^3.6.2"
+    "jest": "^30.0.5"
   },
-  "prettier": "./prettier-config.mjs",
+  "prettier": "@jameslnewell/prettier-config",
+  "jestConfig": {
+    "preset": "./jest-preset.mjs"
+  },
   "scripts": {
-    "test": "prettier --check .",
+    "test": "jest",
     "typing:check": "tsc --noEmit",
     "linting:check": "eslint .",
     "linting:fix": "eslint --fix .",

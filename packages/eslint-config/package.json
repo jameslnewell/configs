@@ -1,24 +1,43 @@
 {
   "name": "@jameslnewell/eslint-config",
-  "version": "0.19.0",
+  "version": "1.0.0",
+  "main": "index.mjs",
   "files": [
-    "index.js",
-    "react.js",
-    "partial"
+    "config.mjs"
   ],
   "peerDependencies": {
-    "eslint": "^8.0.1",
-    "typescript": "^4.0.0"
+    "eslint": "^9.33.0",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "@eslint/js": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.0.1",
+    "globals": "^16.5.0",
+    "typescript-eslint": "^8.40.0"
+  },
+  "devDependencies": {
+    "@jameslnewell/prettier-config": "workspace:*",
+    "@swc/core": "^1.13.4",
+    "@swc/jest": "^0.2.39",
+    "@types/node": "^25.3.0",
+    "eslint": "^9.33.0",
+    "jest": "^30.0.5",
+    "typescript": "^5.9.2"
+  },
+  "prettier": "@jameslnewell/prettier-config",
+  "scripts": {
+    "test": "eslint .",
+    "test:unit": "jest",
+    "inspect": "npm x @eslint/config-inspector@latest",
+    "typing:check": "tsc --noEmit",
+    "linting:check": "eslint .",
+    "linting:fix": "eslint --fix .",
+    "formatting:check": "prettier --check .",
+    "formatting:fix": "prettier --write ."
   },
   "license": "MIT"
 }

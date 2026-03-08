@@ -1,0 +1,53 @@
+{
+  "author": "James Newell",
+  "baseBranch": "master",
+  "plugins": [
+    [
+      "npm",
+      {
+        "setRcToken": false,
+        "publishFolder": ".",
+        "subPackageChangelogs": true
+      }
+    ],
+    "released",
+    "first-time-contributor"
+  ],
+  "labels": [
+    {
+      "name": "major",
+      "description": "Increment the major version when merged",
+      "changelogTitle": "Breaking Changes",
+      "releaseType": "major"
+    },
+    {
+      "name": "minor",
+      "description": "Increment the minor version when merged",
+      "changelogTitle": "New Features",
+      "releaseType": "minor"
+    },
+    {
+      "name": "patch",
+      "description": "Increment the patch version when merged",
+      "changelogTitle": "Bug Fixes",
+      "releaseType": "patch"
+    },
+    {
+      "name": "skip-release",
+      "description": "Preserve the current version when merged",
+      "releaseType": "skip"
+    },
+    {
+      "name": "internal",
+      "description": "Changes only affect the internal API",
+      "changelogTitle": "Internal Changes",
+      "releaseType": "none"
+    },
+    {
+      "name": "documentation",
+      "description": "Changes only affect the documentation",
+      "changelogTitle": "Documentation",
+      "releaseType": "none"
+    }
+  ]
+}

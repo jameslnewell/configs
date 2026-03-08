@@ -1,6 +1,6 @@
 # @jameslnewell/prettier-config
 
-A [`.prettierrc.js`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file according to my preferences.
+A [`prettier`](https://prettier.io/) config according to my preferences.
 
 ## Installation
 
