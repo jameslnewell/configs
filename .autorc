@@ -6,7 +6,6 @@
       "npm",
       {
         "setRcToken": false,
-        "publishFolder": ".",
         "subPackageChangelogs": true
       }
     ],

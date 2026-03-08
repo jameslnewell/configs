@@ -27,5 +27,8 @@
     "formatting:check": "prettier --check .",
     "formatting:fix": "prettier --write ."
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
