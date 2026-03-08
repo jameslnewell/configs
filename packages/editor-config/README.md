@@ -1,11 +1,12 @@
 # @jameslnewell/editor-config
 
-Creates an [`.editorconfig`](https://editorconfig.org/) file according to my preferences.
+Contains an [`.editorconfig`](https://editorconfig.org/) according to my preferences.
 
 ## Installation
 
 NPM:
 
 ```bash
-npm exec -p @jameslnewell/editor-config -- create-editor-config
+npm i -D @jameslnewell/editor-config
+cp node_modules/editor-config/.editor-config .editor-config
 ```

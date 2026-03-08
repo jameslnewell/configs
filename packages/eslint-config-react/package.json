@@ -1,19 +1,24 @@
 {
-  "name": "@jameslnewell/editor-config",
-  "version": "3.0.0",
+  "name": "@jameslnewell/eslint-config-react",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
-    "directory": "packages/editor-config"
+    "directory": "packages/eslint-config-react"
   },
+  "main": "react.mjs",
   "files": [
-    ".editorconfig"
+    "react.mjs"
   ],
   "devDependencies": {
+    "@jameslnewell/eslint-config": "workspace:*",
     "@jameslnewell/prettier-config": "workspace:*"
   },
   "prettier": "@jameslnewell/prettier-config",
   "scripts": {
+    "typing:check": "tsc --noEmit",
+    "linting:check": "eslint .",
+    "linting:fix": "eslint --fix .",
     "formatting:check": "prettier --check .",
     "formatting:fix": "prettier --write ."
   },

@@ -1,46 +1,34 @@
 # @jameslnewell/eslint-config
 
-ESLint configuration.
+A [`eslint`](https://eslint.org/) config according to my preferences.
 
 ## Installation
 
 ```
-yarn add --dev @jameslnewell/eslint-config eslint
+npm install --dev eslint @jameslnewell/eslint-config
 ```
 
 ## Usage
 
-Create a ESLint configuration file:
-
-`.eslintrc.js`
+Create `eslint.config.mjs`:
 
 ```js
-module.exports = {
-  extends: "@jameslnewell/eslint-config",
-  parserOptions: {
-    project: "./tsconfig.json"
-  }
-};
+export config from '@jameslnewell/eslint-config';
+
+export default config;
 ```
 
-Add a script to your `package.json`:
-
-`package.json`
+Update `package.json`:
 
 ```json
 {
   "scripts": {
-    "lint": "eslint --ext .tsx,.ts,.jsx,.js ."
+    "lint": "eslint ."
   }
 }
 ```
 
-## Configs
+## configs
 
-### @jameslnewell/eslint-config
-
-Sans-react.
-
-### @jameslnewell/eslint-config/react
-
-React.
+- `@jameslnewell/eslint-config`
+- `@jameslnewell/eslint-config/node`

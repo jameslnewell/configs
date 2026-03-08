@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "moduleResolution": "node"
+  },
+  "include": ["*.mjs", "*.js", "*.ts", "partial/**/*.mjs", "src/react.mjs"]
+}

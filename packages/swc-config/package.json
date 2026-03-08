@@ -1,17 +1,21 @@
 {
   "name": "@jameslnewell/swc-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
     "directory": "packages/swc-config"
   },
-  "bin": {
-    "create-swc-config": "./cli.js"
-  },
   "files": [
-    "cli.js",
     ".swcrc"
   ],
+  "devDependencies": {
+    "@jameslnewell/prettier-config": "workspace:*"
+  },
+  "prettier": "@jameslnewell/prettier-config",
+  "scripts": {
+    "formatting:check": "prettier --check .",
+    "formatting:fix": "prettier --write ."
+  },
   "license": "MIT"
 }
