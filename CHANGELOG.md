@@ -1,3 +1,15 @@
+# v2.0.2 (Sun Mar 08 2026)
+
+#### ⚠️ Pushed to `master`
+
+- fix npm publishing for workspace packages ([@jameslnewell](https://github.com/jameslnewell))
+
+#### Authors: 1
+
+- James Newell ([@jameslnewell](https://github.com/jameslnewell))
+
+---
+
 # v2.0.1 (Sun Mar 08 2026)
 
 #### ⚠️ Pushed to `master`
