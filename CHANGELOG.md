@@ -1,3 +1,15 @@
+# v2.0.1 (Sun Mar 08 2026)
+
+#### ⚠️ Pushed to `master`
+
+- fix release workflow pulling latest before auto shipit ([@jameslnewell](https://github.com/jameslnewell))
+
+#### Authors: 1
+
+- James Newell ([@jameslnewell](https://github.com/jameslnewell))
+
+---
+
 # v2.0.0 (Sun Mar 08 2026)
 
 :tada: This release contains work from a new contributor! :tada:
