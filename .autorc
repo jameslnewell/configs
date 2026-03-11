@@ -6,7 +6,8 @@
       "npm",
       {
         "setRcToken": false,
-        "subPackageChangelogs": true
+        "subPackageChangelogs": true,
+        "pnpm": true
       }
     ],
     "released",
