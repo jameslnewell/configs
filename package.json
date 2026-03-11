@@ -20,13 +20,10 @@
     "formatting:check": "pnpm -r run formatting:check",
     "formatting:fix": "pnpm -r run formatting:fix",
     "test": "pnpm -r run test",
-    "release": "auto shipit"
+    "release": "changeset publish"
   },
   "license": "MIT",
   "devDependencies": {
-    "@auto-it/first-time-contributor": "^11.3.6",
-    "@auto-it/npm": "^11.3.6",
-    "@auto-it/released": "^11.3.6",
-    "auto": "^11.3.6"
+    "@changesets/cli": "^2.27.0"
   }
 }
