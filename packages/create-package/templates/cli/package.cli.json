@@ -1,0 +1,6 @@
+{
+  "bin": {
+    "{{binName}}": "./dist/cli.js"
+  },
+  "files": ["dist"]
+}
