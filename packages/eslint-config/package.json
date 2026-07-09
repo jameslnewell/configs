@@ -2,6 +2,10 @@
   "name": "@jameslnewell/eslint-config",
   "version": "1.0.0",
   "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./node": "./node.mjs"
+  },
   "files": [
     "index.mjs",
     "node.mjs"

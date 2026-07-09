@@ -1,0 +1,37 @@
+{
+  "name": "@jameslnewell/vitest-config",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslnewell/configs.git",
+    "directory": "packages/vitest-config"
+  },
+  "main": "vitest-config.mjs",
+  "files": [
+    "vitest-config.mjs"
+  ],
+  "peerDependencies": {
+    "vitest": "^4.0.0"
+  },
+  "devDependencies": {
+    "@jameslnewell/eslint-config": "workspace:*",
+    "@jameslnewell/prettier-config": "workspace:*",
+    "@types/node": "^25.3.0",
+    "eslint": "^10.6.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  },
+  "prettier": "@jameslnewell/prettier-config",
+  "scripts": {
+    "test": "vitest run --passWithNoTests",
+    "typing:check": "tsc --noEmit",
+    "linting:check": "eslint .",
+    "linting:fix": "eslint --fix .",
+    "formatting:check": "prettier --check .",
+    "formatting:fix": "prettier --write ."
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
