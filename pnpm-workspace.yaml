@@ -3,6 +3,7 @@ packages:
   - 'tmp'
 allowBuilds:
   '@swc/core': true
+  esbuild: true
   unrs-resolver: false
 minimumReleaseAgeExclude:
   - '@vitest/eslint-plugin@1.6.22'

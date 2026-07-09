@@ -8,7 +8,8 @@
       "@jameslnewell/prettier-config",
       "@jameslnewell/eslint-config",
       "@jameslnewell/typescript-config",
-      "@jameslnewell/vitest-config"
+      "@jameslnewell/vitest-config",
+      "@jameslnewell/tsup-config"
     ]
   ],
   "linked": [],
