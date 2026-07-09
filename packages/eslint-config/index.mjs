@@ -21,6 +21,7 @@ export default defineConfig([
     },
     settings: {
       'import/resolver': {
+        typescript: true,
         node: {
           extensions: ['.js', '.cjs', '.mjs', '.jsx'],
         },
