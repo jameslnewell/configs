@@ -6,7 +6,8 @@
     "target": "ESNext",
     "allowJs": true,
     "checkJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node", "jest"]
   },
   "include": ["*.mjs", "*.js", "*.ts", "test/**/*"]
 }
