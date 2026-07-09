@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import {defineConfig} from 'eslint/config';
 // eslint-disable-next-line sort-imports
 import base from './index.mjs';

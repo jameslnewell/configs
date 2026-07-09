@@ -6,7 +6,8 @@
     "allowJs": true,
     "checkJs": false,
     "noEmit": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0"
   },
   "include": ["*.mjs", "*.js", "*.ts", "partial/**/*.mjs", "src/react.mjs"]
 }
