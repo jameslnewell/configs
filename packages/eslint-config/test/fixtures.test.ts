@@ -28,4 +28,8 @@ describe('ESLint fixtures', () => {
       ]),
     );
   });
+
+  it('should pass on sample.test.ts', async () => {
+    expect(await lint('sample.test.ts')).toEqual([]);
+  });
 });

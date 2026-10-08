@@ -74,5 +74,15 @@ export default defineConfig([
     files: ['**/*.test.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     extends: [vitest.configs.recommended],
   },
+  {
+    name: '@jameslnewell: typescript test files',
+    files: ['**/*.test.{ts,cts,mts,tsx}'],
+    settings: {
+      // TypeScript files have type information, so let the vitest rules use it e.g. to allow `describe(myFunction, ...)`
+      vitest: {
+        typecheck: true,
+      },
+    },
+  },
   prettierConfig,
 ]);
