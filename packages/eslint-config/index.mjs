@@ -30,7 +30,7 @@ export default defineConfig([
     },
     rules: {
       'sort-imports': ['error'],
-      // separate type imports are expected with `verbatimModuleSyntax`
+      // allow `import type {A} from 'a'` alongside `import {b} from 'a'`, a common style with `verbatimModuleSyntax`
       'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
 
       // infer return types where it makes sense
