@@ -25,3 +25,15 @@ Create `tsconfig.json`:
 ```
 
 Since TypeScript 6, `types` defaults to `[]`, so list the global types your project needs (e.g. `node`, `vitest/globals`).
+
+The config uses `"module": "NodeNext"`, so relative imports need file extensions (`./utils.js`, or `./utils.ts` with `rewriteRelativeImportExtensions`) and whether a file is ESM or CommonJS follows the `type` in `package.json`. For code that's bundled (e.g. by Vite), override both options together:
+
+```json
+{
+  "extends": "@jameslnewell/typescript-config",
+  "compilerOptions": {
+    "module": "Preserve",
+    "moduleResolution": "Bundler"
+  }
+}
+```
