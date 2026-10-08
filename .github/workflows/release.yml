@@ -29,6 +29,10 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
+      # trusted publishing (OIDC) needs npm >=11.5.1, newer than the npm bundled with Node 22
+      - name: Upgrade npm
+        run: npm install --global npm@^11.5.1
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
@@ -38,4 +42,3 @@ jobs:
           publish: pnpm release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
