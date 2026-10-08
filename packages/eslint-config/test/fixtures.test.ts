@@ -32,4 +32,12 @@ describe('ESLint fixtures', () => {
   it('should pass on sample.test.ts', async () => {
     expect(await lint('sample.test.ts')).toEqual([]);
   });
+
+  it('should leave resolving imports in TypeScript files to tsc', async () => {
+    expect(await lint('custom-conditions/index.ts')).toEqual([]);
+  });
+
+  it('should still report unresolved imports in JavaScript files', async () => {
+    expect(await lint('unresolved.js')).toEqual(['import/no-unresolved']);
+  });
 });
