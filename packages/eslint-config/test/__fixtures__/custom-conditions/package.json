@@ -1,0 +1,10 @@
+{
+  "name": "custom-conditions",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./greeting": {
+      "source": "./greeting.ts"
+    }
+  }
+}

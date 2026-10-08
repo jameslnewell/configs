@@ -57,6 +57,14 @@ export default defineConfig([
       '@typescript-eslint/no-empty-interface': ['off'],
       // prefer declarative types
       '@typescript-eslint/no-inferrable-types': ['off'],
+
+      // TypeScript already checks these, and its resolution understands the tsconfig (e.g. `customConditions`) where eslint-import-resolver-typescript doesn't
+      // https://typescript-eslint.io/troubleshooting/typed-linting/performance#eslint-plugin-import
+      'import/named': ['off'],
+      'import/namespace': ['off'],
+      'import/default': ['off'],
+      'import/no-named-as-default-member': ['off'],
+      'import/no-unresolved': ['off'],
     },
     settings: {
       'import/resolver': {

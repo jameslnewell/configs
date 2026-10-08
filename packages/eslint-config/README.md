@@ -28,6 +28,8 @@ Update `package.json`:
 
 TypeScript files are linted with type information from the `tsconfig.json` nearest to each file, so make sure every linted TypeScript file (including tests) is included in a `tsconfig.json`.
 
+ESLint doesn't check that imports in TypeScript files resolve or export what's imported because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too.
+
 Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
 ## Configs
