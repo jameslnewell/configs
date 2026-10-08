@@ -1,37 +1,46 @@
 {
   "name": "@jameslnewell/eslint-config",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jameslnewell/configs.git",
+    "directory": "packages/eslint-config"
+  },
+  "type": "module",
   "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./node": "./node.mjs"
+  },
   "files": [
-    "config.mjs"
+    "index.mjs",
+    "node.mjs"
   ],
   "peerDependencies": {
     "eslint": "^9.33.0",
-    "typescript": "^5.9.2"
+    "typescript": ">=4.8.4 <6.1.0"
   },
   "dependencies": {
     "@eslint/js": "^9.33.0",
+    "@vitest/eslint-plugin": "^1.6.27",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-node": "^0.3.9",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jest": "^29.0.1",
-    "globals": "^16.5.0",
-    "typescript-eslint": "^8.40.0"
+    "globals": "^17.13.0",
+    "typescript-eslint": "^8.71.1"
   },
   "devDependencies": {
     "@jameslnewell/prettier-config": "workspace:*",
-    "@swc/core": "^1.13.4",
-    "@swc/jest": "^0.2.39",
-    "@types/node": "^25.3.0",
-    "eslint": "^9.33.0",
-    "jest": "^30.0.5",
-    "typescript": "^5.9.2"
+    "@jameslnewell/vitest-config": "workspace:*",
+    "@types/node": "^26.6.4",
+    "eslint": "^9.39.5",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   },
   "prettier": "@jameslnewell/prettier-config",
   "scripts": {
-    "test": "eslint .",
-    "test:unit": "jest",
+    "test": "vitest run",
     "inspect": "npm x @eslint/config-inspector@latest",
     "typing:check": "tsc --noEmit",
     "linting:check": "eslint .",

@@ -7,12 +7,17 @@
       "@jameslnewell/editor-config",
       "@jameslnewell/prettier-config",
       "@jameslnewell/eslint-config",
-      "@jameslnewell/typescript-config"
+      "@jameslnewell/typescript-config",
+      "@jameslnewell/vitest-config"
     ]
   ],
   "linked": [],
   "access": "public",
   "baseBranch": "master",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": [],
+  "privatePackages": {
+    "version": false,
+    "tag": false
+  }
 }

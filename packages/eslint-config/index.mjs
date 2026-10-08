@@ -1,11 +1,9 @@
-// eslint-disable-next-line import/no-unresolved
 import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
-import jest from 'eslint-plugin-jest';
 import prettierConfig from 'eslint-config-prettier/flat';
-// eslint-disable-next-line import/no-unresolved
 import tseslint from 'typescript-eslint';
+import vitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
   {
@@ -37,6 +35,12 @@ export default defineConfig([
       importPlugin.flatConfigs.typescript,
       tseslint.configs.strictTypeChecked,
     ],
+    languageOptions: {
+      parserOptions: {
+        // type information comes from the tsconfig.json nearest to each file
+        projectService: true,
+      },
+    },
     rules: {
       'sort-imports': ['error'],
 
@@ -66,19 +70,9 @@ export default defineConfig([
     },
   },
   {
-    name: '@jameslnewell: source typescript files',
-    files: ['src/**/*.{ts,cts,mts,tsx}'],
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
-  {
     name: '@jameslnewell: test files',
     files: ['**/*.test.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
-    extends: [jest.configs['flat/recommended']],
+    extends: [vitest.configs.recommended],
   },
   prettierConfig,
 ]);

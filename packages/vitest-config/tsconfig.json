@@ -4,7 +4,7 @@
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
-  "include": ["*.mjs", "*.js", "*.ts", "test/**/*"]
+  "include": ["*.mjs", "src", "test"]
 }

@@ -1,0 +1,11 @@
+{
+  "extends": "@jameslnewell/typescript-config",
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "rewriteRelativeImportExtensions": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["src", "*.mjs"]
+}

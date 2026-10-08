@@ -1,6 +1,7 @@
 packages:
   - 'packages/*'
   - 'tmp'
+  - 'fixtures/*'
 allowBuilds:
   '@swc/core': true
   unrs-resolver: false

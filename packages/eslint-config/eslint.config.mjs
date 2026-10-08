@@ -1,8 +1,8 @@
-import config from './index.mjs';
+import config from './node.mjs';
 
 export default [
   {
-    ignores: ['test/**'],
+    ignores: ['test/__fixtures__/**'],
   },
   ...config,
 ];
