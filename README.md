@@ -11,7 +11,6 @@ Sharable configs for managing my personal repositories.
 - [typescript-config](packages/typescript-config/README.md)
 - [vitest-config](packages/vitest-config/README.md)
 
-[`fixtures/example`](fixtures/example) is a small package which consumes these configs so that CI checks they work together.
 
 ## Installation
 

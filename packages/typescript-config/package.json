@@ -13,10 +13,13 @@
     "typescript": ">=6.0.0"
   },
   "devDependencies": {
-    "@jameslnewell/prettier-config": "workspace:*"
+    "@jameslnewell/prettier-config": "workspace:*",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   },
   "prettier": "@jameslnewell/prettier-config",
   "scripts": {
+    "test": "vitest run",
     "formatting:check": "prettier --check .",
     "formatting:fix": "prettier --write ."
   },
