@@ -37,7 +37,19 @@ describe('ESLint fixtures', () => {
     expect(await lint('custom-conditions/index.ts')).toEqual([]);
   });
 
-  it('should still report unresolved imports in JavaScript files', async () => {
-    expect(await lint('unresolved.js')).toEqual(['import/no-unresolved']);
+  it('should fail on duplicate imports in JavaScript files', async () => {
+    expect(await lint('duplicate-imports.js')).toEqual([
+      'no-duplicate-imports',
+    ]);
+  });
+
+  it('should fail on duplicate imports in TypeScript files', async () => {
+    expect(await lint('duplicate-imports.ts')).toEqual([
+      'no-duplicate-imports',
+    ]);
+  });
+
+  it('should pass on separate type and value imports in TypeScript files', async () => {
+    expect(await lint('type-and-value-imports.ts')).toEqual([]);
   });
 });
