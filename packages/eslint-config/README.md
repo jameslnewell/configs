@@ -28,7 +28,7 @@ Update `package.json`:
 
 TypeScript files are linted with type information from the `tsconfig.json` nearest to each file, so make sure every linted TypeScript file (including tests) is included in a `tsconfig.json`.
 
-ESLint doesn't check that imports in TypeScript files resolve or export what's imported because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too.
+ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
 
 Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
@@ -51,3 +51,12 @@ TypeScript 7 doesn't ship a JavaScript API yet, which [`typescript-eslint`](http
 ```
 
 `tsc` will run TypeScript 7 while `typescript-eslint` imports the TypeScript 6 API from `typescript`.
+
+## Migrating to v8
+
+`eslint-plugin-import` has been removed, so ESLint now reports `Definition for rule 'import/...' was not found` for any `import/*` rules left in your project:
+
+- remove `eslint-disable` comments for `import/*` rules
+- remove `import/*` rules and `import/resolver` settings from your `eslint.config.*`
+
+Duplicate imports are now reported by ESLint's built-in [`no-duplicate-imports`](https://eslint.org/docs/latest/rules/no-duplicate-imports) rule, which allows a separate `import type` alongside a value import from the same module in TypeScript files.

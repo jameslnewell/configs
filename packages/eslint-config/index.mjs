@@ -1,6 +1,5 @@
 import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
-import importPlugin from 'eslint-plugin-import';
 import prettierConfig from 'eslint-config-prettier/flat';
 import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
@@ -13,28 +12,16 @@ export default defineConfig([
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    extends: [eslint.configs.recommended, importPlugin.flatConfigs.recommended],
+    extends: [eslint.configs.recommended],
     rules: {
       'sort-imports': ['error'],
-    },
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: {
-          extensions: ['.js', '.cjs', '.mjs', '.jsx'],
-        },
-      },
+      'no-duplicate-imports': ['error'],
     },
   },
   {
     name: '@jameslnewell: typescript files',
     files: ['**/*.{ts,cts,mts,tsx}'],
-    extends: [
-      eslint.configs.recommended,
-      importPlugin.flatConfigs.recommended,
-      importPlugin.flatConfigs.typescript,
-      tseslint.configs.strictTypeChecked,
-    ],
+    extends: [eslint.configs.recommended, tseslint.configs.strictTypeChecked],
     languageOptions: {
       parserOptions: {
         // type information comes from the tsconfig.json nearest to each file
@@ -43,6 +30,8 @@ export default defineConfig([
     },
     rules: {
       'sort-imports': ['error'],
+      // allow `import type {A} from 'a'` alongside `import {b} from 'a'`, a common style with `verbatimModuleSyntax`
+      'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
 
       // infer return types where it makes sense
       '@typescript-eslint/explicit-function-return-type': [
@@ -57,24 +46,6 @@ export default defineConfig([
       '@typescript-eslint/no-empty-interface': ['off'],
       // prefer declarative types
       '@typescript-eslint/no-inferrable-types': ['off'],
-
-      // TypeScript already checks these, and its resolution understands the tsconfig (e.g. `customConditions`) where eslint-import-resolver-typescript doesn't
-      // https://typescript-eslint.io/troubleshooting/typed-linting/performance#eslint-plugin-import
-      'import/named': ['off'],
-      'import/namespace': ['off'],
-      'import/default': ['off'],
-      'import/no-named-as-default-member': ['off'],
-      'import/no-unresolved': ['off'],
-    },
-    settings: {
-      'import/resolver': {
-        typescript: {
-          extensions: ['.ts', '.cts', '.mts', '.tsx'],
-        },
-        node: {
-          extensions: ['.js', '.cjs', '.mjs', '.jsx'],
-        },
-      },
     },
   },
   {
