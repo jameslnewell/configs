@@ -1,21 +1,32 @@
 {
-  "name": "@jameslnewell/eslint-config-react",
-  "version": "2.0.0",
+  "name": "@jameslnewell/vitest-config",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jameslnewell/configs.git",
-    "directory": "packages/eslint-config-react"
+    "directory": "packages/vitest-config"
   },
-  "main": "react.mjs",
+  "type": "module",
+  "main": "vitest-config.mjs",
+  "exports": {
+    ".": "./vitest-config.mjs"
+  },
   "files": [
-    "react.mjs"
+    "vitest-config.mjs"
   ],
+  "peerDependencies": {
+    "vitest": "^5.0.0"
+  },
   "devDependencies": {
     "@jameslnewell/eslint-config": "workspace:*",
-    "@jameslnewell/prettier-config": "workspace:*"
+    "@jameslnewell/prettier-config": "workspace:*",
+    "@types/node": "^26.6.4",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   },
   "prettier": "@jameslnewell/prettier-config",
   "scripts": {
+    "test": "vitest run",
     "typing:check": "tsc --noEmit",
     "linting:check": "eslint .",
     "linting:fix": "eslint --fix .",

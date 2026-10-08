@@ -4,8 +4,8 @@ A [`eslint`](https://eslint.org/) config according to my preferences.
 
 ## Installation
 
-```
-npm install --dev eslint @jameslnewell/eslint-config
+```bash
+npm i -D eslint @jameslnewell/eslint-config
 ```
 
 ## Usage
@@ -13,9 +13,7 @@ npm install --dev eslint @jameslnewell/eslint-config
 Create `eslint.config.mjs`:
 
 ```js
-export config from '@jameslnewell/eslint-config';
-
-export default config;
+export {default} from '@jameslnewell/eslint-config/node';
 ```
 
 Update `package.json`:
@@ -28,7 +26,26 @@ Update `package.json`:
 }
 ```
 
-## configs
+TypeScript files are linted with type information from the `tsconfig.json` nearest to each file, so make sure every linted TypeScript file (including tests) is included in a `tsconfig.json`.
 
-- `@jameslnewell/eslint-config`
-- `@jameslnewell/eslint-config/node`
+Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
+
+## Configs
+
+- `@jameslnewell/eslint-config` — JavaScript and TypeScript
+- `@jameslnewell/eslint-config/node` — as above, plus Node.js globals
+
+## TypeScript 7
+
+TypeScript 7 doesn't ship a JavaScript API yet, which [`typescript-eslint`](https://typescript-eslint.io/) needs. Until it does, install TypeScript 7 alongside the TypeScript 6 API, as [recommended by the TypeScript team](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0-rc/):
+
+```json
+{
+  "devDependencies": {
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "@typescript/native": "npm:typescript@^7.0.2"
+  }
+}
+```
+
+`tsc` will run TypeScript 7 while `typescript-eslint` imports the TypeScript 6 API from `typescript`.

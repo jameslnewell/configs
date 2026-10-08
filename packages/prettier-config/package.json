@@ -16,11 +16,13 @@
   "devDependencies": {
     "@jameslnewell/eslint-config": "workspace:*",
     "@types/node": "^25.3.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "vite": "^8.3.3",
+    "vitest": "^5.0.3"
   },
   "prettier": "./prettier-config.mjs",
   "scripts": {
-    "test": "prettier --check .",
+    "test": "vitest run",
     "typing:check": "tsc --noEmit",
     "linting:check": "eslint .",
     "linting:fix": "eslint --fix .",

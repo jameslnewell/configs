@@ -6,5 +6,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["*.mjs", "*.js", "*.ts", "index.mjs", "node.mjs"]
+  "include": ["*.mjs", "test/*.ts"]
 }

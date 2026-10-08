@@ -1,29 +1,31 @@
+import {describe, expect, it} from 'vitest';
 import {ESLint} from 'eslint';
-import {resolve, dirname} from 'path';
-import {fileURLToPath} from 'url';
+import {resolve} from 'node:path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const fixturesDirectory = resolve(import.meta.dirname, '__fixtures__');
+
+async function lint(fixture: string): Promise<string[]> {
+  const eslint = new ESLint({
+    cwd: fixturesDirectory,
+    overrideConfigFile: resolve(import.meta.dirname, '../node.mjs'),
+  });
+  const results = await eslint.lintFiles([resolve(fixturesDirectory, fixture)]);
+  return results.flatMap((result) =>
+    result.messages.map((message) => message.ruleId ?? message.message),
+  );
+}
 
 describe('ESLint fixtures', () => {
   it('should pass on sample.js', async () => {
-    const eslint = new ESLint();
-    const results = await eslint.lintFiles([
-      resolve(__dirname, '__fixtures__/sample.js'),
-    ]);
-    const hasErrors = results.some(
-      (result) => result.errorCount > 0 || result.warningCount > 0,
-    );
-    expect(hasErrors).toBe(false);
+    expect(await lint('sample.js')).toEqual([]);
   });
 
   it('should fail on sample.ts', async () => {
-    const eslint = new ESLint();
-    const results = await eslint.lintFiles([
-      resolve(__dirname, '__fixtures__/sample.ts'),
-    ]);
-    const hasErrors = results.some(
-      (result) => result.errorCount > 0 || result.warningCount > 0,
+    expect(await lint('sample.ts')).toEqual(
+      expect.arrayContaining([
+        '@typescript-eslint/no-unused-vars',
+        '@typescript-eslint/no-floating-promises',
+      ]),
     );
-    expect(hasErrors).toBe(true);
   });
 });
