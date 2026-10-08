@@ -4,8 +4,8 @@ A [`vitest`](https://vitest.dev/) config according to my preferences.
 
 Tests are split into two projects:
 
-- `unit` — `src/**/*.test.ts`
-- `e2e` — `test/**/*.test.ts`
+- `unit` — `src/**/*.test.*`
+- `e2e` — `test/**/*.test.*`
 
 ## Installation
 

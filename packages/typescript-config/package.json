@@ -9,6 +9,9 @@
   "files": [
     "tsconfig.json"
   ],
+  "peerDependencies": {
+    "typescript": ">=6.0.0"
+  },
   "devDependencies": {
     "@jameslnewell/prettier-config": "workspace:*"
   },

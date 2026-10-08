@@ -10,14 +10,14 @@ export default defineConfig({
         extends: true,
         test: {
           name: 'unit',
-          include: ['src/**/*.test.{ts,mts,cts,tsx}'],
+          include: ['src/**/*.test.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
         },
       },
       {
         extends: true,
         test: {
           name: 'e2e',
-          include: ['test/**/*.test.{ts,mts,cts,tsx}'],
+          include: ['test/**/*.test.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'],
         },
       },
     ],

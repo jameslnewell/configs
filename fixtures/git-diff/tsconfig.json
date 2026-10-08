@@ -1,6 +1,8 @@
 {
   "extends": "@jameslnewell/typescript-config",
   "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
     "outDir": "dist",
     "declaration": true,
     "rewriteRelativeImportExtensions": true,

@@ -8,7 +8,6 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
@@ -16,9 +15,6 @@
 
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "libReplacement": false,
-    "forceConsistentCasingInFileNames": true,
 
     "sourceMap": true,
 
