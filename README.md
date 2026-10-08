@@ -11,7 +11,7 @@ Sharable configs for managing my personal repositories.
 - [typescript-config](packages/typescript-config/README.md)
 - [vitest-config](packages/vitest-config/README.md)
 
-[`fixtures/git-diff`](fixtures/git-diff) is a copy of [`@jameslnewell/git-diff`](https://github.com/jameslnewell/git-diff) which consumes these configs so that CI checks they work together.
+[`fixtures/example`](fixtures/example) is a small package which consumes these configs so that CI checks they work together.
 
 ## Installation
 
