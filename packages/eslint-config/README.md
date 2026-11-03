@@ -30,7 +30,9 @@ TypeScript files are linted with type information from the `tsconfig.json` neare
 
 ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
 
-Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
+Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules, and fail on focused (`.only`) or skipped (`.skip`) tests.
+
+Functions, methods and function types you declare take at most two parameters (`@jameslnewell/prefer-options-object`); take an options object instead, so calls name each argument. Functions whose parameters another API dictates aren't reported, e.g. a callback passed to `.reduce()` or a function assigned to a variable typed `ErrorRequestHandler`, or a method overriding a base class's, and nor are `this` parameters, constructor parameter properties or ambient declarations.
 
 ## Configs
 
