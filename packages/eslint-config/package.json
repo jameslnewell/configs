@@ -14,7 +14,8 @@
   },
   "files": [
     "index.mjs",
-    "node.mjs"
+    "node.mjs",
+    "rules/"
   ],
   "peerDependencies": {
     "eslint": "^9.33.0",
@@ -23,6 +24,7 @@
   "dependencies": {
     "@eslint/js": "^9.33.0",
     "@typescript-eslint/eslint-plugin": "^8.71.1",
+    "@typescript-eslint/utils": "^8.71.1",
     "@vitest/eslint-plugin": "^1.6.27",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.13.0",

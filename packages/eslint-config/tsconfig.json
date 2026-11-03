@@ -6,5 +6,5 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["*.mjs", "test/*.ts"]
+  "include": ["*.mjs", "rules/*.mjs", "test/*.ts"]
 }

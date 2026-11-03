@@ -1,10 +1,29 @@
 import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
+import packageJson from './package.json' with {type: 'json'};
+import preferOptionsObject from './rules/prefer-options-object.mjs';
 import prettierConfig from 'eslint-config-prettier/flat';
 import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
 
+const plugin = {
+  // the version lets ESLint's cache tell when the rules change
+  meta: {name: packageJson.name, version: packageJson.version},
+  rules: {'prefer-options-object': preferOptionsObject},
+};
+// typed as loosely as typescript-eslint types its own plugin, because its rule type doesn't match ESLint's
+/** @type {{meta: {name: string}}} */
+const compatiblePlugin = plugin;
+
 export default defineConfig([
+  {
+    name: '@jameslnewell: all files',
+    files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+    plugins: {'@jameslnewell': compatiblePlugin},
+    rules: {
+      '@jameslnewell/prefer-options-object': ['error'],
+    },
+  },
   {
     name: '@jameslnewell: javascript files',
     files: ['**/*.{js,cjs,mjs,jsx}'],
@@ -52,6 +71,10 @@ export default defineConfig([
     name: '@jameslnewell: test files',
     files: ['**/*.test.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     extends: [vitest.configs.recommended],
+    rules: {
+      // a skipped test quietly stops checking anything, so fail rather than warn
+      'vitest/no-disabled-tests': ['error'],
+    },
   },
   {
     name: '@jameslnewell: typescript test files',
