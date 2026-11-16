@@ -43,8 +43,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.15.0(supports-color@8.1.1))
       '@stylistic/eslint-plugin':
-        specifier: ^5.10.0
-        version: 5.10.0(eslint@10.15.0(supports-color@8.1.1))
+        specifier: ^6.0.1
+        version: 6.0.1(eslint@10.15.0(supports-color@8.1.1))
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.71.1
         version: 8.71.1(@typescript-eslint/parser@8.71.1(@typescript/typescript6@6.0.2)(eslint@10.15.0(supports-color@8.1.1))(supports-color@8.1.1))(@typescript/typescript6@6.0.2)(eslint@10.15.0(supports-color@8.1.1))(supports-color@8.1.1)
@@ -463,11 +463,17 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@stylistic/eslint-plugin@5.10.0':
-    resolution: {integrity: sha512-nPK52ZHvot8Ju/0A4ucSX1dcPV2/1clx0kLcH5wDmrE4naKso7TUC/voUyU1O9OTKTrR6MYip6LP0ogEMQ9jPQ==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+  '@stylistic/eslint-plugin@6.0.1':
+    resolution: {integrity: sha512-7nyi2RmGIuzBYGq5C8cFaoQsh+COfo6oHMWCygzg2iaqJJ4RDThaKCMYRkkOUAQWv80R7sbBbpuKZfulH7bFcw==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
+      oxlint: ^1.55.0
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+      oxlint:
+        optional: true
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -538,6 +544,10 @@ packages:
     resolution: {integrity: sha512-ybYnPTUwg3VQQOFEiBPLs8Jxl1ry2vXdn1kVKguomBbvxpetdu3MKTNDqFNUrlG8ylP9MpZosmXMFYlGQHk1oQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@typescript-eslint/types@8.73.0':
+    resolution: {integrity: sha512-O/1ytYzflF16QDKXx4/qOXg1IuZp+n7hr9t+S0nv7N/2Tl8rJiNCshztV1gcSUvHbPtoX3+zmNbtSAyVbzxVfw==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   '@typescript-eslint/typescript-estree@8.71.1':
     resolution: {integrity: sha512-pSKSEK1JJpHs6KiKVtABCE4iJK5d7FLFzDXQNBQ2oRY7LEd3UwOt3TZemTgu9syTIf56dJWlTn/pdmrO9oKUXQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -553,6 +563,10 @@ packages:
 
   '@typescript-eslint/visitor-keys@8.71.1':
     resolution: {integrity: sha512-0GxiUGqMU0qXJt58cBsiG3DP8lUmBaFo2vChtUX+CT7PnR3v/VGLLrzVP4K9r1lNiZXjHYefMBbPunplr09v6w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript-eslint/visitor-keys@8.73.0':
+    resolution: {integrity: sha512-k4lsFVpRZICbltkIEEH4hZRkwXkqDF1GHBpClKQOHQY+RkoZAAuyc1ci3I6p+CB6v3U4jaHIUshc4RzzQXZWLg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
@@ -2186,15 +2200,15 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@stylistic/eslint-plugin@5.10.0(eslint@10.15.0(supports-color@8.1.1))':
+  '@stylistic/eslint-plugin@6.0.1(eslint@10.15.0(supports-color@8.1.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.15.0(supports-color@8.1.1))
-      '@typescript-eslint/types': 8.71.1
-      eslint: 10.15.0(supports-color@8.1.1)
-      eslint-visitor-keys: 4.2.1
-      espree: 10.4.0
-      estraverse: 5.3.0
+      '@typescript-eslint/types': 8.73.0
+      '@typescript-eslint/visitor-keys': 8.73.0
+      espree: 11.2.0
       picomatch: 4.0.7
+    optionalDependencies:
+      eslint: 10.15.0(supports-color@8.1.1)
 
   '@types/chai@5.2.3':
     dependencies:
@@ -2284,6 +2298,8 @@ snapshots:
 
   '@typescript-eslint/types@8.71.1': {}
 
+  '@typescript-eslint/types@8.73.0': {}
+
   '@typescript-eslint/typescript-estree@8.71.1(@typescript/typescript6@6.0.2)(supports-color@8.1.1)':
     dependencies:
       '@typescript-eslint/project-service': 8.71.1(@typescript/typescript6@6.0.2)(supports-color@8.1.1)
@@ -2313,6 +2329,11 @@ snapshots:
   '@typescript-eslint/visitor-keys@8.71.1':
     dependencies:
       '@typescript-eslint/types': 8.71.1
+      eslint-visitor-keys: 5.0.1
+
+  '@typescript-eslint/visitor-keys@8.73.0':
+    dependencies:
+      '@typescript-eslint/types': 8.73.0
       eslint-visitor-keys: 5.0.1
 
   '@typescript/typescript-aix-ppc64@7.0.2':

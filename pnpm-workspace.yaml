@@ -3,3 +3,8 @@ packages:
   - 'tmp'
 allowBuilds:
   '@swc/core': true
+# Newer than minimumReleaseAge; @stylistic/eslint-plugin 6 pulls in the others.
+minimumReleaseAgeExclude:
+  - '@stylistic/eslint-plugin'
+  - '@typescript-eslint/types'
+  - '@typescript-eslint/visitor-keys'
