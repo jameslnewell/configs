@@ -1,6 +1,5 @@
 import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
-import importX from 'eslint-plugin-import-x';
 import n from 'eslint-plugin-n';
 import prettierConfig from 'eslint-config-prettier/flat';
 import stylistic from '@stylistic/eslint-plugin';
@@ -12,15 +11,16 @@ export default defineConfig([
     name: '@jameslnewell: plugins',
     files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
     plugins: {
-      // registered as `import` (not `import-x`) so rule names match `eslint-plugin-import`. No resolver settings
-      // are configured on purpose: `tsc` resolves imports, so these are only the syntactic rules.
-      import: importX,
       node: n,
       '@stylistic': stylistic,
     },
     rules: {
-      'import/first': ['error'],
-      'import/newline-after-import': ['error'],
+      // a blank line between the imports and the code
+      '@stylistic/padding-line-between-statements': [
+        'error',
+        {blankLine: 'always', prev: 'import', next: '*'},
+        {blankLine: 'any', prev: 'import', next: 'import'},
+      ],
       'node/prefer-node-protocol': ['error'],
       // allow `/// <reference />` directives and `//#region` markers
       '@stylistic/spaced-comment': [
@@ -46,13 +46,6 @@ export default defineConfig([
     },
   },
   {
-    name: '@jameslnewell: es module files',
-    files: ['**/*.{js,mjs,jsx,ts,mts,tsx}'],
-    rules: {
-      'import/no-commonjs': ['error'],
-    },
-  },
-  {
     name: '@jameslnewell: typescript files',
     files: ['**/*.{ts,cts,mts,tsx}'],
     extends: [eslint.configs.recommended, tseslint.configs.strictTypeChecked],
@@ -67,10 +60,7 @@ export default defineConfig([
       // allow `import type {A} from 'a'` alongside `import {b} from 'a'`, a common style with `verbatimModuleSyntax`
       'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
 
-      // `eslint-plugin-import-x` has no `prefer-top-level-if-only-type-imports`, so `import {a, type B}` is split into
-      // `import {a}` and `import type {B}` (allowed by `no-duplicate-imports` above). The rule below flags hand-written
-      // inline specifiers, and `consistent-type-imports` flags type-only imports missing `import type`.
-      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+      // split `import {a, type B}` into `import {a}` and `import type {B}` (allowed by `no-duplicate-imports` above)
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {prefer: 'type-imports', fixStyle: 'separate-type-imports'},

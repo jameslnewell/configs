@@ -28,7 +28,7 @@ Update `package.json`:
 
 TypeScript files are linted with type information from the `tsconfig.json` nearest to each file, so make sure every linted TypeScript file (including tests) is included in a `tsconfig.json`.
 
-ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. The `import/*` rules are only the syntactic ones, from [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x) registered without a resolver,. JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
+ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
 
 Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
@@ -36,16 +36,14 @@ Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
 On top of ESLint's recommended rules, [`typescript-eslint`'s `strictTypeChecked`](https://typescript-eslint.io/users/configs/#strict-type-checked) rules (TypeScript files) and the Vitest recommended rules (test files):
 
-| Rule                                                                                                   | Files                                                                                             |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| `import/first`, `import/newline-after-import`                                                          | all                                                                                               |
-| `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all                                                                                               |
-| `@stylistic/spaced-comment`                                                                            | all                                                                                               |
-| `import/no-commonjs`                                                                                   | not `.cjs`/`.cts`; a `.js` file in a `type: commonjs` package is flagged too, so rename it `.cjs` |
-| `no-var`, `prefer-const`, `sort-imports`, `no-duplicate-imports`                                       | JavaScript                                                                                        |
-| `import/consistent-type-specifier-style` (`prefer-top-level`)                                          | TypeScript                                                                                        |
-| `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`)   | TypeScript                                                                                        |
-| `@typescript-eslint/no-shadow` (replaces `no-shadow`)                                                  | TypeScript                                                                                        |
+| Rule                                                                                                   | Files      |
+| ------------------------------------------------------------------------------------------------------ | ---------- |
+| `@stylistic/padding-line-between-statements` (a blank line after imports)                              | all        |
+| `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all        |
+| `@stylistic/spaced-comment`                                                                            | all        |
+| `no-var`, `prefer-const`, `sort-imports`, `no-duplicate-imports`                                       | JavaScript |
+| `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`)   | TypeScript |
+| `@typescript-eslint/no-shadow` (replaces `no-shadow`)                                                  | TypeScript |
 
 `sort-imports` and `no-duplicate-imports` also apply to TypeScript files, where a separate `import type` is allowed beside a value import from the same module.
 
@@ -73,7 +71,6 @@ TypeScript 7 doesn't ship a JavaScript API yet, which [`typescript-eslint`](http
 
 - ESLint 10 is required (ESLint 9 is no longer supported, because `@eslint/js` 10 only supports ESLint 10)
 - the rules above are new, so expect new errors; many are fixable with `eslint --fix`
-- `import/*` rules are back (from `eslint-plugin-import-x`, registered as `import`), so you can keep your `import/*` `eslint-disable` comments, but remove any `import/resolver` settings, which are not used
 
 ## Migrating to v8
 

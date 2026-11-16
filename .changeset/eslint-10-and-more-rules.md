@@ -8,11 +8,8 @@ BREAKING CHANGE: ESLint 10 is required. The `eslint` peer dependency is now `^10
 
 BREAKING CHANGE: new rules are enabled, so existing code may now report errors (many are fixable with `eslint --fix`):
 
-- all files: `import/first`, `import/newline-after-import`, `node/prefer-node-protocol`, `@stylistic/spaced-comment`
+- all files: `@stylistic/padding-line-between-statements` (a blank line after imports), `node/prefer-node-protocol`, `@stylistic/spaced-comment`
 - JavaScript files: `no-var`, `prefer-const`
-- JavaScript and TypeScript ESM files (not `.cjs`/`.cts`): `import/no-commonjs`
-- TypeScript files: `import/consistent-type-specifier-style` (`prefer-top-level`), `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`), `@typescript-eslint/no-shadow` (replacing `no-shadow`)
+- TypeScript files: `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`), `@typescript-eslint/no-shadow` (replacing `no-shadow`)
 
-The `import/*` rules come from `eslint-plugin-import-x` (the only import plugin that supports ESLint 10), registered as `import` and without any resolver settings, so `tsc` is still the only thing resolving imports. New dependencies: `eslint-plugin-import-x`, `eslint-plugin-n` and `@stylistic/eslint-plugin`.
-
-`import/no-commonjs` also flags `.js` files in a `type: commonjs` package, so rename those to `.cjs`.
+New dependencies: `eslint-plugin-n` and `@stylistic/eslint-plugin`.

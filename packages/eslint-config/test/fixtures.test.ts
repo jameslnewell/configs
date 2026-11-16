@@ -53,18 +53,13 @@ describe('ESLint fixtures', () => {
     expect(await lint('type-and-value-imports.ts')).toEqual([]);
   });
 
-  it('should fail on CommonJS in JavaScript files', async () => {
-    expect(await lint('commonjs.js')).toEqual(['import/no-commonjs']);
-  });
-
   it('should fail on `var` in JavaScript files', async () => {
     expect(await lint('var-and-let.js')).toEqual(['no-var', 'prefer-const']);
   });
 
-  it('should fail on imports after other statements', async () => {
-    expect((await lint('import-first.js')).sort()).toEqual([
-      'import/first',
-      'import/newline-after-import',
+  it('should fail on code directly after imports', async () => {
+    expect(await lint('newline-after-import.js')).toEqual([
+      '@stylistic/padding-line-between-statements',
     ]);
   });
 
@@ -82,12 +77,6 @@ describe('ESLint fixtures', () => {
 
   it('should allow triple-slash directives and region markers', async () => {
     expect(await lint('directives.ts')).toEqual([]);
-  });
-
-  it('should fail on inline type specifiers in TypeScript files', async () => {
-    expect(await lint('inline-type-specifier.ts')).toEqual([
-      'import/consistent-type-specifier-style',
-    ]);
   });
 
   it('should fail on type-only imports without `import type` in TypeScript files', async () => {
