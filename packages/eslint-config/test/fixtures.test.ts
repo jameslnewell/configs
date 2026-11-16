@@ -1,6 +1,7 @@
+import {resolve} from 'node:path';
+// eslint-disable-next-line sort-imports
 import {describe, expect, it} from 'vitest';
 import {ESLint} from 'eslint';
-import {resolve} from 'node:path';
 
 const fixturesDirectory = resolve(import.meta.dirname, '__fixtures__');
 
@@ -51,5 +52,58 @@ describe('ESLint fixtures', () => {
 
   it('should pass on separate type and value imports in TypeScript files', async () => {
     expect(await lint('type-and-value-imports.ts')).toEqual([]);
+  });
+
+  it('should fail on CommonJS in JavaScript files', async () => {
+    expect(await lint('commonjs.js')).toEqual(['import/no-commonjs']);
+  });
+
+  it('should fail on `var` in JavaScript files', async () => {
+    expect(await lint('var-and-let.js')).toEqual(['no-var', 'prefer-const']);
+  });
+
+  it('should fail on imports in the wrong order', async () => {
+    expect(await lint('import-order.js')).toEqual(['import/order']);
+  });
+
+  it('should fail on imports after other statements', async () => {
+    expect(await lint('import-first.js')).toEqual([
+      'import/newline-after-import',
+      'import/first',
+    ]);
+  });
+
+  it('should fail on Node.js builtin imports without the `node:` protocol', async () => {
+    expect(await lint('node-protocol.js')).toEqual([
+      'node/prefer-node-protocol',
+    ]);
+  });
+
+  it('should fail on comments without a leading space', async () => {
+    expect(await lint('spaced-comment.js')).toEqual([
+      '@stylistic/spaced-comment',
+    ]);
+  });
+
+  it('should fail on inline type specifiers in TypeScript files', async () => {
+    expect(await lint('inline-type-specifier.ts')).toEqual([
+      'import/consistent-type-specifier-style',
+    ]);
+  });
+
+  it('should fail on type-only imports without `import type` in TypeScript files', async () => {
+    expect(await lint('type-import.ts')).toEqual([
+      '@typescript-eslint/consistent-type-imports',
+    ]);
+  });
+
+  it('should fail on property-style method signatures', async () => {
+    expect(await lint('method-signature.ts')).toEqual([
+      '@typescript-eslint/method-signature-style',
+    ]);
+  });
+
+  it('should fail on shadowed variables in TypeScript files', async () => {
+    expect(await lint('shadow.ts')).toEqual(['@typescript-eslint/no-shadow']);
   });
 });
