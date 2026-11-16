@@ -1,7 +1,6 @@
-import {resolve} from 'node:path';
-// eslint-disable-next-line sort-imports
 import {describe, expect, it} from 'vitest';
 import {ESLint} from 'eslint';
+import {resolve} from 'node:path';
 
 const fixturesDirectory = resolve(import.meta.dirname, '__fixtures__');
 
@@ -60,10 +59,6 @@ describe('ESLint fixtures', () => {
 
   it('should fail on `var` in JavaScript files', async () => {
     expect(await lint('var-and-let.js')).toEqual(['no-var', 'prefer-const']);
-  });
-
-  it('should fail on imports in the wrong order', async () => {
-    expect(await lint('import-order.js')).toEqual(['import/order']);
   });
 
   it('should fail on imports after other statements', async () => {

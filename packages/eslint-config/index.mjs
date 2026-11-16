@@ -21,7 +21,6 @@ export default defineConfig([
     rules: {
       'import/first': ['error'],
       'import/newline-after-import': ['error'],
-      'import/order': ['error'],
       'node/prefer-node-protocol': ['error'],
       // allow `/// <reference />` directives and `//#region` markers
       '@stylistic/spaced-comment': [

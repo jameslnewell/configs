@@ -28,7 +28,7 @@ Update `package.json`:
 
 TypeScript files are linted with type information from the `tsconfig.json` nearest to each file, so make sure every linted TypeScript file (including tests) is included in a `tsconfig.json`.
 
-ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. The `import/*` rules are only the syntactic ones, from [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x) registered without a resolver, so `import/order` groups imports by their specifier alone (Node.js builtins, packages, then relative paths). JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
+ESLint doesn't check that imports resolve or export what's imported, in any file, because `tsc` already reports these using your `tsconfig.json` (e.g. `paths` and `customConditions`), so make sure you run `tsc` too. The `import/*` rules are only the syntactic ones, from [`eslint-plugin-import-x`](https://github.com/un-ts/eslint-plugin-import-x) registered without a resolver,. JavaScript files are only checked by `tsc` when they're included in a `tsconfig.json` with `allowJs` and `checkJs` enabled.
 
 Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
@@ -38,7 +38,7 @@ On top of ESLint's recommended rules, [`typescript-eslint`'s `strictTypeChecked`
 
 | Rule                                                                                                   | Files                                                                                             |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| `import/first`, `import/newline-after-import`, `import/order`                                          | all                                                                                               |
+| `import/first`, `import/newline-after-import`                                                          | all                                                                                               |
 | `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all                                                                                               |
 | `@stylistic/spaced-comment`                                                                            | all                                                                                               |
 | `import/no-commonjs`                                                                                   | not `.cjs`/`.cts`; a `.js` file in a `type: commonjs` package is flagged too, so rename it `.cjs` |

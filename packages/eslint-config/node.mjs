@@ -1,7 +1,7 @@
 import {defineConfig} from 'eslint/config';
-import globals from 'globals';
 // eslint-disable-next-line sort-imports
 import base from './index.mjs';
+import globals from 'globals';
 
 export default defineConfig([
   ...base,

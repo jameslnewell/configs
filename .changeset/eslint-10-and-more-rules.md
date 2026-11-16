@@ -8,7 +8,7 @@ BREAKING CHANGE: ESLint 10 is required. The `eslint` peer dependency is now `^10
 
 BREAKING CHANGE: new rules are enabled, so existing code may now report errors (many are fixable with `eslint --fix`):
 
-- all files: `import/first`, `import/newline-after-import`, `import/order`, `node/prefer-node-protocol`, `@stylistic/spaced-comment`
+- all files: `import/first`, `import/newline-after-import`, `node/prefer-node-protocol`, `@stylistic/spaced-comment`
 - JavaScript files: `no-var`, `prefer-const`
 - JavaScript and TypeScript ESM files (not `.cjs`/`.cts`): `import/no-commonjs`
 - TypeScript files: `import/consistent-type-specifier-style` (`prefer-top-level`), `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`), `@typescript-eslint/no-shadow` (replacing `no-shadow`)
