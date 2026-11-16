@@ -67,9 +67,9 @@ describe('ESLint fixtures', () => {
   });
 
   it('should fail on imports after other statements', async () => {
-    expect(await lint('import-first.js')).toEqual([
-      'import/newline-after-import',
+    expect((await lint('import-first.js')).sort()).toEqual([
       'import/first',
+      'import/newline-after-import',
     ]);
   });
 
@@ -83,6 +83,10 @@ describe('ESLint fixtures', () => {
     expect(await lint('spaced-comment.js')).toEqual([
       '@stylistic/spaced-comment',
     ]);
+  });
+
+  it('should allow triple-slash directives and region markers', async () => {
+    expect(await lint('directives.ts')).toEqual([]);
   });
 
   it('should fail on inline type specifiers in TypeScript files', async () => {

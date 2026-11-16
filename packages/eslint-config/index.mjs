@@ -23,7 +23,12 @@ export default defineConfig([
       'import/newline-after-import': ['error'],
       'import/order': ['error'],
       'node/prefer-node-protocol': ['error'],
-      '@stylistic/spaced-comment': ['error'],
+      // allow `/// <reference />` directives and `//#region` markers
+      '@stylistic/spaced-comment': [
+        'error',
+        'always',
+        {markers: ['/', '#region', '#endregion']},
+      ],
     },
   },
   {
@@ -64,7 +69,8 @@ export default defineConfig([
       'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
 
       // `eslint-plugin-import-x` has no `prefer-top-level-if-only-type-imports`, so `import {a, type B}` is split into
-      // `import {a}` and `import type {B}` (allowed by `no-duplicate-imports` above)
+      // `import {a}` and `import type {B}` (allowed by `no-duplicate-imports` above). The rule below flags hand-written
+      // inline specifiers, and `consistent-type-imports` flags type-only imports missing `import type`.
       'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       '@typescript-eslint/consistent-type-imports': [
         'error',

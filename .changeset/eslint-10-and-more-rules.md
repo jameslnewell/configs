@@ -14,3 +14,5 @@ BREAKING CHANGE: new rules are enabled, so existing code may now report errors (
 - TypeScript files: `import/consistent-type-specifier-style` (`prefer-top-level`), `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`), `@typescript-eslint/no-shadow` (replacing `no-shadow`)
 
 The `import/*` rules come from `eslint-plugin-import-x` (the only import plugin that supports ESLint 10), registered as `import` and without any resolver settings, so `tsc` is still the only thing resolving imports. New dependencies: `eslint-plugin-import-x`, `eslint-plugin-n` and `@stylistic/eslint-plugin`.
+
+`import/no-commonjs` also flags `.js` files in a `type: commonjs` package, so rename those to `.cjs`.

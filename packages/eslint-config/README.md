@@ -36,16 +36,16 @@ Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
 On top of ESLint's recommended rules, [`typescript-eslint`'s `strictTypeChecked`](https://typescript-eslint.io/users/configs/#strict-type-checked) rules (TypeScript files) and the Vitest recommended rules (test files):
 
-| Rule                                                                                                   | Files      |
-| ------------------------------------------------------------------------------------------------------ | ---------- |
-| `import/first`, `import/newline-after-import`, `import/order`                                          | all        |
-| `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all        |
-| `@stylistic/spaced-comment`                                                                            | all        |
-| `import/no-commonjs`                                                                                   | not `.cjs` |
-| `no-var`, `prefer-const`, `sort-imports`, `no-duplicate-imports`                                       | JavaScript |
-| `import/consistent-type-specifier-style` (`prefer-top-level`)                                          | TypeScript |
-| `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`)   | TypeScript |
-| `@typescript-eslint/no-shadow` (replaces `no-shadow`)                                                  | TypeScript |
+| Rule                                                                                                   | Files                                                                                             |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
+| `import/first`, `import/newline-after-import`, `import/order`                                          | all                                                                                               |
+| `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all                                                                                               |
+| `@stylistic/spaced-comment`                                                                            | all                                                                                               |
+| `import/no-commonjs`                                                                                   | not `.cjs`/`.cts`; a `.js` file in a `type: commonjs` package is flagged too, so rename it `.cjs` |
+| `no-var`, `prefer-const`, `sort-imports`, `no-duplicate-imports`                                       | JavaScript                                                                                        |
+| `import/consistent-type-specifier-style` (`prefer-top-level`)                                          | TypeScript                                                                                        |
+| `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`)   | TypeScript                                                                                        |
+| `@typescript-eslint/no-shadow` (replaces `no-shadow`)                                                  | TypeScript                                                                                        |
 
 `sort-imports` and `no-duplicate-imports` also apply to TypeScript files, where a separate `import type` is allowed beside a value import from the same module.
 
