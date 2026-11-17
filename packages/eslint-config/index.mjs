@@ -60,7 +60,7 @@ export default defineConfig([
       // allow `import type {A} from 'a'` alongside `import {b} from 'a'`, a common style with `verbatimModuleSyntax`
       'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
 
-      // split `import {a, type B}` into `import {a}` and `import type {B}` (allowed by `no-duplicate-imports` above)
+      // only affects the autofix: type-only imports become `import type {B}` beside the value import (allowed by `no-duplicate-imports` above)
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {prefer: 'type-imports', fixStyle: 'separate-type-imports'},

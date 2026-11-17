@@ -71,6 +71,7 @@ TypeScript 7 doesn't ship a JavaScript API yet, which [`typescript-eslint`](http
 
 - ESLint 10 is required (ESLint 9 is no longer supported, because `@eslint/js` 10 only supports ESLint 10)
 - the rules above are new, so expect new errors; many are fixable with `eslint --fix`
+- `import/*` rules are not available (removed in v8), and nothing checks that imports come first or that `require()` is not used in ES modules, so keep `tsc` and code review for those
 
 ## Migrating to v8
 
