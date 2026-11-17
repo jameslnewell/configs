@@ -32,6 +32,21 @@ ESLint doesn't check that imports resolve or export what's imported, in any file
 
 Test files (`*.test.*`) are linted with the [Vitest](https://vitest.dev/) rules.
 
+## Rules
+
+On top of ESLint's recommended rules, [`typescript-eslint`'s `strictTypeChecked`](https://typescript-eslint.io/users/configs/#strict-type-checked) rules (TypeScript files) and the Vitest recommended rules (test files):
+
+| Rule                                                                                                   | Files      |
+| ------------------------------------------------------------------------------------------------------ | ---------- |
+| `@stylistic/padding-line-between-statements` (a blank line after imports)                              | all        |
+| `node/prefer-node-protocol` ([`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n)) | all        |
+| `@stylistic/spaced-comment`                                                                            | all        |
+| `no-var`, `prefer-const`, `sort-imports`, `no-duplicate-imports`                                       | JavaScript |
+| `@typescript-eslint/consistent-type-imports`, `@typescript-eslint/method-signature-style` (`method`)   | TypeScript |
+| `@typescript-eslint/no-shadow` (replaces `no-shadow`)                                                  | TypeScript |
+
+`sort-imports` and `no-duplicate-imports` also apply to TypeScript files, where a separate `import type` is allowed beside a value import from the same module.
+
 ## Configs
 
 - `@jameslnewell/eslint-config` — JavaScript and TypeScript
@@ -51,6 +66,12 @@ TypeScript 7 doesn't ship a JavaScript API yet, which [`typescript-eslint`](http
 ```
 
 `tsc` will run TypeScript 7 while `typescript-eslint` imports the TypeScript 6 API from `typescript`.
+
+## Migrating to v9
+
+- ESLint 10 is required (ESLint 9 is no longer supported, because `@eslint/js` 10 only supports ESLint 10)
+- the rules above are new, so expect new errors; many are fixable with `eslint --fix`
+- `import/*` rules are not available (removed in v8), and nothing checks that imports come first or that `require()` is not used in ES modules, so keep `tsc` and code review for those
 
 ## Migrating to v8
 

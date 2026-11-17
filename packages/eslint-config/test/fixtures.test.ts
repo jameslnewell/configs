@@ -52,4 +52,46 @@ describe('ESLint fixtures', () => {
   it('should pass on separate type and value imports in TypeScript files', async () => {
     expect(await lint('type-and-value-imports.ts')).toEqual([]);
   });
+
+  it('should fail on `var` in JavaScript files', async () => {
+    expect(await lint('var-and-let.js')).toEqual(['no-var', 'prefer-const']);
+  });
+
+  it('should fail on code directly after imports', async () => {
+    expect(await lint('newline-after-import.js')).toEqual([
+      '@stylistic/padding-line-between-statements',
+    ]);
+  });
+
+  it('should fail on Node.js builtin imports without the `node:` protocol', async () => {
+    expect(await lint('node-protocol.js')).toEqual([
+      'node/prefer-node-protocol',
+    ]);
+  });
+
+  it('should fail on comments without a leading space', async () => {
+    expect(await lint('spaced-comment.js')).toEqual([
+      '@stylistic/spaced-comment',
+    ]);
+  });
+
+  it('should allow triple-slash directives and region markers', async () => {
+    expect(await lint('directives.ts')).toEqual([]);
+  });
+
+  it('should fail on type-only imports without `import type` in TypeScript files', async () => {
+    expect(await lint('type-import.ts')).toEqual([
+      '@typescript-eslint/consistent-type-imports',
+    ]);
+  });
+
+  it('should fail on property-style method signatures', async () => {
+    expect(await lint('method-signature.ts')).toEqual([
+      '@typescript-eslint/method-signature-style',
+    ]);
+  });
+
+  it('should fail on shadowed variables in TypeScript files', async () => {
+    expect(await lint('shadow.ts')).toEqual(['@typescript-eslint/no-shadow']);
+  });
 });

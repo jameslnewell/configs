@@ -1,10 +1,35 @@
 import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
+import n from 'eslint-plugin-n';
 import prettierConfig from 'eslint-config-prettier/flat';
+import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 import vitest from '@vitest/eslint-plugin';
 
 export default defineConfig([
+  {
+    name: '@jameslnewell: plugins',
+    files: ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'],
+    plugins: {
+      node: n,
+      '@stylistic': stylistic,
+    },
+    rules: {
+      // a blank line between the imports and the code
+      '@stylistic/padding-line-between-statements': [
+        'error',
+        {blankLine: 'always', prev: 'import', next: '*'},
+        {blankLine: 'any', prev: 'import', next: 'import'},
+      ],
+      'node/prefer-node-protocol': ['error'],
+      // allow `/// <reference />` directives and `//#region` markers
+      '@stylistic/spaced-comment': [
+        'error',
+        'always',
+        {markers: ['/', '#region', '#endregion']},
+      ],
+    },
+  },
   {
     name: '@jameslnewell: javascript files',
     files: ['**/*.{js,cjs,mjs,jsx}'],
@@ -16,6 +41,8 @@ export default defineConfig([
     rules: {
       'sort-imports': ['error'],
       'no-duplicate-imports': ['error'],
+      'no-var': ['error'],
+      'prefer-const': ['error'],
     },
   },
   {
@@ -32,6 +59,15 @@ export default defineConfig([
       'sort-imports': ['error'],
       // allow `import type {A} from 'a'` alongside `import {b} from 'a'`, a common style with `verbatimModuleSyntax`
       'no-duplicate-imports': ['error', {allowSeparateTypeImports: true}],
+
+      // only affects the autofix: type-only imports become `import type {B}` beside the value import (allowed by `no-duplicate-imports` above)
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {prefer: 'type-imports', fixStyle: 'separate-type-imports'},
+      ],
+      '@typescript-eslint/method-signature-style': ['error', 'method'],
+      'no-shadow': ['off'],
+      '@typescript-eslint/no-shadow': ['error'],
 
       // infer return types where it makes sense
       '@typescript-eslint/explicit-function-return-type': [
